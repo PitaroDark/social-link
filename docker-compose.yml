@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+
+  social-link-db:
+    image: mongo:latest
+    container_name: social-link-db
+    restart: always
+    hostname: social-link-db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      ID_MONGOOSE_STUDIO_3T: d4f3a5e7-b128-4108-878c-600ed8117bf4
+    volumes:
+      - ./database:/database/db
+      - ./database/logs:/var/log/mongodb/
+    ports:
+      - "4003:27017"
+
+  social-link-backend:
+    image: node:slim
+    container_name: social-link-backend
+    restart: always
+    working_dir: /app
+    user: root
+    environment:
+      - TZ=America/Mexico_City
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - social-link-db
+    ports:
+      - 4000:4000
+    command: "npm start"
+
+  social-link-frontend:
+    image: node:slim
+    container_name: social-link-frontend
+    #restart: always
+    working_dir: /app
+    user: root
+    environment:
+      - TZ=America/Mexico_City
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - social-link-backend
+    ports:
+      - 4001:4001
+    command: "npm start"

@@ -1,0 +1,6 @@
+/.vscode
+/.env
+/database/logs
+/backend/node_modules
+/backend/package-lock.json
+/frontend/node_modules
