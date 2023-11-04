@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import { connect } from "./database/db.js";
+import auth from "./routes/auth.routes.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,6 +13,7 @@ app.use(morgan(`dev`));
 app.use(cors({ origin: `*`, methods: [`GET`, `POST`, `PUT`, `DELETE`] }));
 
 //ROUTE NOT FOUND
+app.use('/auth', auth);
 app.use((req, res) => {
   return res.status(404).send({ message: `The route doesn't exist` });
 });
