@@ -16,7 +16,7 @@ const home = async (req, res) => {
  * @param {import('express').Response} res 
  */
 const signIn = async (req, res) => {
-
+    return res.status(200).send({ msg: 'IN PROCESS' });
 }
 
 /**
@@ -25,7 +25,7 @@ const signIn = async (req, res) => {
  * @param {import('express').Response} res 
  */
 const signUp = async (req, res) => {
-
+    return res.status(200).send({ msg: 'IN PROCESS' });
 }
 
 export default {
