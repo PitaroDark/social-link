@@ -2,13 +2,6 @@
 import { Schema, model } from "mongoose";
 
 const user = new Schema({
-  id_user:{
-    type: String,
-    minlength: 36,
-    maxlength: 36,
-    required: true,
-    unique: true,
-  },
   username: {
     type: String,
     required: true,
@@ -33,6 +26,8 @@ const user = new Schema({
     type: String,
     required: true,
   }
+},{
+  timestamps: true,
 });
 
 export default model('User', user);

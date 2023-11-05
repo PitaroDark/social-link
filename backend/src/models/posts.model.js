@@ -9,6 +9,8 @@ const posts = new Schema({
     required: true,
     unique: true,
   },
+},{
+  timestamps: true,
 });
 
 export default model("Posts", posts);
