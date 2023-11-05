@@ -5,6 +5,8 @@ import morgan from "morgan";
 import acceptFiles from "express-fileupload";
 import { connect } from "./database/db.js";
 import auth from "./routes/auth.routes.js";
+import { config } from "dotenv";
+config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;

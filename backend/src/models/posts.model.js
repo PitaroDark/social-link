@@ -1,7 +1,7 @@
 "use strict";
 import { Schema, model } from "mongoose";
 
-const posts = Schema({
+const posts = new Schema({
   id_post: {
     type: String,
     minlength: 36,

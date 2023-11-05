@@ -1,7 +1,7 @@
 "use strict";
 import { Schema, model } from "mongoose";
 
-const user = Schema({
+const user = new Schema({
   id_user:{
     type: String,
     minlength: 36,

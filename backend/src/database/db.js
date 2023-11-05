@@ -2,7 +2,7 @@
 import mongoose from "mongoose";
 
 export const connect = async () => {
-  const urlMongo = `mongodb://localhost:4003/social-link`;
+  const urlMongo = process.env.MONGODB_CONNECTION_STRING;
   try {
     await mongoose.connect(urlMongo);
     console.log("Database is connected...");
