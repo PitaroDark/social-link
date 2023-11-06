@@ -25,7 +25,8 @@ const signIn = async (req, res) => {
  * @param {import('express').Response} res 
  */
 const signUp = async (req, res) => {
-    return res.status(200).send({ msg: 'IN PROCESS' });
+    const values = await service.signUp(req.body);
+    return res.status(200).send(values);
 }
 
 export default {
