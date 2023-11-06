@@ -6,7 +6,8 @@ const signUp = async (body) => {
   const { value, error } = schemas.user.validate(body);
   if(error)
     return error;
-  return value;
+  const model = new User(value);
+  return model;
 };
 
 export default {
