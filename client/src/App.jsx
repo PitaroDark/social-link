@@ -2,12 +2,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import SignPage from "./pages/SignPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import Ladding from "./pages/Ladding.jsx";
 
 function App(){
    return (
       <BrowserRouter>
          <Routes>
-            <Route path="/" element={<h1>Ladding</h1>} />
+            <Route path="/" element={<Ladding/>} />
             <Route path="/sign" element={<SignPage />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/user" element={<h1>USER</h1>} />
