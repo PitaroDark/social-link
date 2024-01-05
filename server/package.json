@@ -29,6 +29,7 @@
     "mongoose": "^8.0.0",
     "morgan": "^1.10.0",
     "node-fetch": "^2.6.11",
+    "nodemailer": "^6.9.8",
     "winston": "^3.11.0"
   }
 }

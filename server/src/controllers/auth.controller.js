@@ -38,6 +38,17 @@ const signUp = async (req, res) => {
 };
 
 /**
+ * Hace un correo para restablecer la contrasela
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
+const resetPassword = async (req, res) => {
+  const { error, message, status } = await service.resetPassword(req?.body);
+  if (error) return res.status(status).send({ error });
+  return res.status(status).send({ message });
+}
+
+/**
  * Cierra la sesion del usuario
  * @param {import('express').Request} req
  * @param {import('express').Response} res
@@ -59,4 +70,5 @@ export default {
   signUp,
   signOut,
   test,
+  resetPassword,
 };

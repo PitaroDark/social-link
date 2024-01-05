@@ -1,7 +1,7 @@
 "use strict";
 import { Schema, model } from "mongoose";
 
-const user = new Schema({
+const UserSchema = new Schema({
   username: {
     type: String,
     required: true,
@@ -25,9 +25,29 @@ const user = new Schema({
   password: {
     type: String,
     required: true,
-  }
+  },
+  resetToken: {
+    type: String,
+  },
+  resetTokenExpiration: {
+    type: Date,
+  },
+  friends: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  }],
+  posts: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Post',
+  }],
+  chats: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Chat',
+  }],
 },{
   timestamps: true,
 });
 
-export default model('User', user);
+const User = model('User', UserSchema);
+
+export default User;

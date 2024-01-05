@@ -10,7 +10,6 @@ router
   .post("/sign/in", controller.signIn)
   .post("/sign/up", controller.signUp)
   .post("/sign/out", controller.signOut)
-  .post('/sign/reset', controller.resetPassword)
   .post('/test', [middleware.validateToken], controller.test);
 
 export default router;

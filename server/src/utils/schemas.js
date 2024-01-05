@@ -15,7 +15,12 @@ const userOptional = Joi.alternatives().try(
   user
 );
 
+const resetPassword = Joi.object({
+  email: Joi.string().email().required(),
+});
+
 export default {
   user,
   userOptional,
+  resetPassword,
 };

@@ -1,16 +1,40 @@
 "use strict";
 import { Schema, model } from "mongoose";
 
-const posts = new Schema({
-  id_post: {
-    type: String,
-    minlength: 36,
-    maxlength: 36,
-    required: true,
-    unique: true,
+const postSchema = new Schema({
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
-},{
-  timestamps: true,
+  timestamp: {
+    type: Date,
+    default: Date.now(),
+  },
+  content: {
+    type: String,
+  },
+  likes: [{ 
+    type: Schema.Types.ObjectId, 
+    ref: "User" 
+  }],
+  loves: [{ 
+    type: Schema.Types.ObjectId, 
+    ref: "User" 
+  }],
+  funny: [{
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }],
+  angry: [{
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }],
+  comments: [{ 
+    type: Schema.Types.ObjectId, 
+    ref: "Comment" 
+  }],
 });
 
-export default model("Posts", posts);
+const Post = model("Post", postSchema);
+
+export default Post;
