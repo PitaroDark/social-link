@@ -1,20 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import SignPage from "./pages/SignPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import Ladding from "./pages/Ladding.jsx";
+import Register from "./pages/Register.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 function App(){
    return (
       <BrowserRouter>
          <Routes>
             <Route path="/" element={<Ladding/>} />
-            <Route path="/sign" element={<SignPage />} />
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/user" element={<h1>USER</h1>} />
-            <Route path="/post" element={<h1>POST</h1>} />
-            <Route path="/comment" element={<h1>COMMENT</h1>} />
-            <Route path="/reactions" element={<h1>REACTIONS</h1>} />
+            <Route path="/SocialLink" element={<HomePage />} />
+            <Route path="/register" element={<Register />}/>
+            <Route path="*" element={<NotFound/>} />
          </Routes>
       </BrowserRouter>
    );
