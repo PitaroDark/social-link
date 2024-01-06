@@ -7,6 +7,9 @@ import parseCookies from "cookie-parser";
 import { connect } from "./database/db.js";
 import auth from "./routes/auth.routes.js";
 import user from "./routes/user.routes.js";
+import post from "./routes/post.routes.js";
+import comment from "./routes/comment.routes.js";
+import chat from "./routes/chat.routes.js";
 import env from "./config/config.js";
 
 const app = express();
@@ -20,10 +23,14 @@ app.use(cors({ origin: `*`, methods: [`GET`, `POST`, `PUT`, `DELETE`] }));
 app.use(parseCookies());
 app.use(acceptFiles());
 
-//ROUTE NOT FOUND
+//ROUTES
 app.use("/auth", auth);
 app.use("/user", user);
+app.use("/post", post);
+app.use("/comment", comment);
+app.use("/chat", chat);
 app.use((req, res) => {
+  //NOT FOUND
   return res.status(404).send({ message: `The route doesn't exist` });
 });
 
