@@ -55,6 +55,20 @@ const createUser = async (body) => {
   return saved;
 }
 
+const patchUser = async (id, body) => {
+  const { value, error } = schemas.userOptional.validate(body);
+  if (error) return { error };
+  const user = User.findByIdAndUpdate(id, value);
+  if (!user) return { error: 'No se encontro el usuario' };
+  return user;
+}
+
+const deleteUser = async (id) => {
+  const user = await User.findByIdAndDelete(id);
+  if (!user) return { error: 'No se encontro el usuario' };
+  return user;
+}
+
 export default {
   getAll,
   getById,
@@ -65,5 +79,7 @@ export default {
   getFriends,
   getPosts,
   getChats,
-
+  createUser,
+  patchUser,
+  deleteUser,
 };
