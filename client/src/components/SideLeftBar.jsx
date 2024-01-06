@@ -2,22 +2,10 @@ import { GoHome, GoBell } from "react-icons/go";
 import { BiUser } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { TiMessages } from "react-icons/ti";
-import { BsThreeDots, BsSearch } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
 import { TbSquareRotated, TbDoorExit} from "react-icons/tb";
 
 const SideBarIcons = [
-    {
-        title:'',
-        icon:TbSquareRotated
-    },
-    {
-        title:'Inicio',
-        icon:GoHome
-    },
-    {
-        title:'Notificaciónes',
-        icon:GoBell
-    },
     {
         title:'Mensajes',
         icon:TiMessages
@@ -32,8 +20,15 @@ const SideLeftBar = () => {
   return (
     <section className="w-[20%] sticky top-0 xl:flex flex-col items-stretch h-screen hidden"> 
         <div className="flex flex-col items-stretch h-full space-y-4 mt-4"> 
+            <div className="text-2xl transition duration-200 flex items-center justify-start w-fit space-x-4 rounded-3xl py-2 px-6">
+                <TbSquareRotated/>
+            </div>
+            <div className="hover:bg-black/20 text-2xl transition duration-200 flex items-center justify-start w-fit space-x-4 rounded-3xl py-2 px-6">
+                <Link to="/SocialLink"><GoHome/></Link>
+                <p>Inicio</p>
+            </div>
         {SideBarIcons.map((item)=>(
-                <Link className="hover:bg-black/20 text-2xl transition duration-200 flex items-center justify-start w-fit space-x-4 rounded-3xl py-2 px-6" href={`/${item.title.toLowerCase()}`} key={item.title}>
+                <Link to={`/SocialLink/${item.title.toLowerCase()}`} className="hover:bg-black/20 text-2xl transition duration-200 flex items-center justify-start w-fit space-x-4 rounded-3xl py-2 px-6" key={item.title}>
                 <div> <item.icon/> </div>
                 <div> {item.title} </div>
                 </Link>

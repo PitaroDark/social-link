@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage.jsx";
 import Ladding from "./pages/Ladding.jsx";
 import Register from "./pages/Register.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import Profile from "./pages/Profile.jsx";
 
 function App(){
    return (
@@ -12,6 +13,7 @@ function App(){
             <Route path="/" element={<Ladding/>} />
             <Route path="/SocialLink" element={<HomePage />} />
             <Route path="/register" element={<Register />}/>
+            <Route path="/SocialLink/Perfil" element={<Profile />}/>
             <Route path="*" element={<NotFound/>} />
          </Routes>
       </BrowserRouter>
