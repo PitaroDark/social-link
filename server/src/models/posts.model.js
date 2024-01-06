@@ -13,6 +13,10 @@ const postSchema = new Schema({
   content: {
     type: String,
   },
+  sharedPost: {
+    type: Schema.Types.ObjectId,
+    ref: "Post",
+  },
   likes: [{ 
     type: Schema.Types.ObjectId, 
     ref: "User" 
