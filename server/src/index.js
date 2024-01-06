@@ -6,6 +6,7 @@ import acceptFiles from "express-fileupload";
 import parseCookies from "cookie-parser";
 import { connect } from "./database/db.js";
 import auth from "./routes/auth.routes.js";
+import user from "./routes/user.routes.js";
 import env from "./config/config.js";
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(acceptFiles());
 
 //ROUTE NOT FOUND
 app.use("/auth", auth);
+app.use("/user", user);
 app.use((req, res) => {
   return res.status(404).send({ message: `The route doesn't exist` });
 });

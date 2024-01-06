@@ -1,5 +1,5 @@
 'use strict';
-import service from "../services/user.service.js";
+import service from "../services/user.services.js";
 
 const getAll = async (req, res) => {
   const users = await service.getAll();
